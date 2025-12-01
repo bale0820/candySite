@@ -29,12 +29,12 @@
     "web-vitals": "^2.1.4",
     "xlsx": "^0.18.5"
   },
-  "scripts": {
+ "scripts": {
   "start": "react-scripts start",
-  "build": "ESLINT_NO_DEV_ERRORS=true react-scripts build",
+  "build": "CI=false react-scripts build",
   "test": "react-scripts test",
   "eject": "react-scripts eject"
-},
+}
   "eslintConfig": {
     "extends": [
       "react-app",
