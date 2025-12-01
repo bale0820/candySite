@@ -1,0 +1,382 @@
+.product-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif;
+  color: #333;
+}
+
+.product-detail {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
+  padding: 60px 0;
+}
+
+.product-detail-main {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+}
+
+.product-image {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* 뱃지 위치 기준 */
+}
+
+.product-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+.product-image-main {
+  width: 480px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+.product-container .sold-out {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* 반투명 검정 */
+  color: rgb(255, 0, 0);
+  font-size: 4rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  pointer-events: none; /* 클릭 방해 방지 */
+  border-radius: 5px;
+  z-index: 10;
+}
+
+.product-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-info-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+/* 왼쪽 영역 */
+.product-info-left {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #555;
+}
+
+/* 브랜드 링크 */
+.product-brand {
+  font-size: 18px;
+  font-weight: 500;
+  color: #777;
+  text-decoration: none;
+}
+
+.product-brand:hover {
+  text-decoration: underline;
+}
+
+/* 레시피 */
+.recipe-hover-area {
+  position: relative;
+  display: inline-block;
+}
+
+.recipe-text {
+  color: #777;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.recipe-text:hover {
+  color: #8c2de1;
+  text-decoration: underline;
+}
+
+.recipe-text.active {
+  color: #a13bea;
+  text-decoration: underline;
+}
+
+/* 레시피 설명 박스 (호버 시 표시) */
+.recipe-box {
+  position: absolute;
+  top: 24px;
+  right: 0;
+  width: 260px;
+  background-color: #fafafa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 14px 18px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  line-height: 1.6;
+  z-index: 10;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.recipe-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.recipe-list {
+  padding-left: 18px;
+  margin: 0;
+  color: #555;
+  font-size: 14px;
+}
+
+.recipe-list li {
+  list-style-type: decimal;
+  margin-bottom: 4px;
+}
+
+/* 등장 애니메이션 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.product-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.product-discount {
+  font-size: 16px;
+}
+
+.red {
+  color: #e60023;
+  font-weight: 600;
+}
+
+.product-price-original {
+  margin-left: 6px;
+  color: #888;
+  font-weight: 400;
+}
+
+.line {
+  text-decoration: line-through;
+}
+
+.product-price-final {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+}
+
+.product-period {
+  font-size: 14px;
+}
+
+.product-meta {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  list-style: none;
+  font-size: 15px;
+}
+
+.product-meta li:first-child {
+  width: 120px;
+  flex-shrink: 0;
+  color: #555;
+  font-weight: 600;
+}
+
+.product-meta li:last-child {
+  flex: 1;
+  color: #666;
+  line-height: 1.6;
+  white-space: pre-line;
+}
+
+.product-purchase {
+  margin-top: 20px;
+}
+
+.product-purchase-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  list-style: none;
+}
+
+.product-qty-control {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qty-btn {
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.qty-input {
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 28px;
+  width: 50px;
+}
+
+.product-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* 장바구니 버튼 */
+.btn-cart {
+  flex: 1;
+  background: #4949b1ff;
+  color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 14px 0;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-cart:hover {
+  background: #eaeaea;
+}
+
+/* 갯수가 0개 일때 */
+.btn-cart:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* 탭 영역 */
+.product-tabs {
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 50px;
+  border-top: 1px solid #6d6c6c;
+
+  /* 탭 상단 고정*/
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 10;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.product-tab-list {
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #ddd;
+  list-style: none;
+  padding: 0;
+}
+
+.product-tab-list li {
+  flex: 1;
+  text-align: center;
+}
+
+.product-tab-list li button {
+  width: 100%;
+  padding: 16px 0;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.product-tab-list li.active button {
+  font-weight: 700;
+  border-bottom: 3px solid #6a0dad;
+  color: #6a0dad;
+}
+
+/* 탭 */
+.product-tab-content {
+  width: 100%;
+  margin-top: 30px;
+}
+
+/* 탭 내용별 margin */
+.product-section {
+  margin-bottom: 80px;
+}
+
+.badge-container {
+  position: absolute;
+  top: 20px;
+  left: 70px;
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  z-index: 10; /* 이미지 위로 올라오도록 */
+}
+
+.badge-container.multi {
+  flex-direction: column;
+  gap: 6px;
+}
+
+.badge{
+  font-size: 14px;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* hot 뱃지 */
+.badge.hot{
+  background-color: #8c4eff;
+}
+
+/* member 뱃지 */
+.badge.member{
+  background-color: #2c7a4b;
+}

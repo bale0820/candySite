@@ -1,0 +1,136 @@
+.category-nav {
+  background-color: #4949b1ff;
+
+  &__list {
+    // max-width: 1200px;
+    margin: 0 20px;
+    padding: 12px 0;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    color: white;
+
+    @media (max-width: 600px) {
+       justify-content: center;
+      }
+
+    .category-first {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      line-height: 1;
+      cursor: pointer;
+      position: relative;
+
+      svg {
+        vertical-align: middle;
+        /* 아이콘의 수직 기준 맞추기 */
+        margin-bottom: 1px;
+        /* 살짝 미세 조정 */
+      }
+
+      @media (max-width: 768px) {
+        display: none;
+      }
+
+      &:hover {
+        .main-category-list {
+          display: block; // hover 시 메뉴 나타나게
+        }
+      }
+
+      // 카테고리 대분류 메뉴
+      .main-category-list {
+        display: none; // 기본 숨김
+        position: absolute;
+        top: 100%; // category-first 바로 아래 표시
+        left: 0;
+        background-color: #4949b1ff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        min-width: 200px;
+        z-index: 100;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        .main-category-item {
+          padding: 10px;
+          position: relative;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #ff3b6a;
+
+            // 마우스 hover시 서브 카테고리 리스트가 표시
+            .sub-category-list {
+              display: block;
+            }
+          }
+
+          // 카테고리 중분류 메뉴
+          .sub-category-list {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%; // 오른쪽에 나타나도록
+            background-color: #4949b1ff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-width: 180px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+
+            li {
+              padding: 8px 10px;
+              cursor: pointer;
+
+              &:hover {
+                background-color: #ff3b6a;
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    .category-last {
+      white-space: nowrap;
+       @media (max-width: 600px) {
+        display: none;
+      }
+    }
+
+    li {
+      cursor: pointer;
+      font-weight: 500;
+      transition: color 0.2s ease;
+
+      // &:hover {
+      //   color: #ffe082;
+      // }
+
+      // @media (max-width: 768px) {
+      //   flex: 1 1 33%; // 3개씩 줄 나열
+      //   text-align: center;
+      //   padding: 6px 0;
+      // }
+
+      // @media (max-width: 480px) {
+      //   flex: 1 1 50%; // 2개씩 줄 나열
+      // }
+
+      ul {
+        display: flex;
+        justify-content: space-between;
+        gap : clamp(30px, 5vw, 300px);;
+        align-items: center;
+
+        li {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}

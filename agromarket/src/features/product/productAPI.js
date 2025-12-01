@@ -1,0 +1,176 @@
+import {
+  setProductList,
+  setProduct,
+  setProductReviewList,
+  setProductQnAList,
+  setRecentSubCategory
+} from "./productSlice";
+// features
+import { showCart } from "features/cart/cartAPI";
+import { parseJwt } from "features/auth/parseJwt";
+// shared
+import { axiosGet, axiosPost, axiosPostFile } from "shared/lib/axiosInstance";
+import { api } from "shared/lib/axios";
+
+
+
+
+export const setProductListAPI = () => async (dispatch) => {
+  const result = await axiosGet("/product/productList");
+  if (result !== null && Array.isArray(result)) {
+    dispatch(setProductList({ result: result }));
+  }
+};
+
+// 선택 상품 정보 취득
+export const setProductAPI = (id) => async (dispatch) => {
+  const url = "/product/productDetail";
+  const params = { "id" : id };
+  const jsonData = await api.get(url, { params });
+
+  // null이 아닐경우만 실행
+  if(jsonData && Object.keys(jsonData).length > 0){
+    dispatch(setProduct({ product: jsonData.data }));
+  }
+};
+
+export const setProductReviewListAPI = () => async (dispatch) => {
+  try {
+    const result = await axiosGet(
+      "/product/productReviewList"
+    );
+
+    // ✅ 문자열 JSON → 실제 배열로 변환
+    const parsed = result.map((item) => ({
+      ...item,
+      images:
+        typeof item.images === "string" ? JSON.parse(item.images) : item.images,
+      tags: typeof item.tags === "string" ? JSON.parse(item.tags) : item.tags,
+    }));
+
+    // ✅ Redux에 저장
+    dispatch(setProductReviewList({ result: parsed }));
+  } catch (error) {
+    console.error("리뷰 데이터 불러오기 실패:", error);
+  }
+};
+
+export const setProductQnAListAPI = () => async (dispatch) => {
+  const result = await axiosGet("/product/productQnAList");
+  dispatch(setProductQnAList({"result" : result}));
+};
+
+
+export const setProductBestListAPI = async() =>  {
+  const result = await axiosGet("/product/productBestList");
+  return result;
+}
+
+// 상품 정보 등록
+export const setProductData = async(formData, imageListFile, isNew, id, maxImagelength) => {
+  // 토큰 확인
+  const stored = localStorage.getItem("loginInfo");
+
+  if (stored) {
+    let url ="";
+
+    // 토큰에서 user의 id취득
+    const { accessToken } = JSON.parse(stored);
+    const payload = parseJwt(accessToken);
+
+    // 이미지 전송을 위한 FormData
+    const data = new FormData();
+
+    // user의 id설정
+    formData = {...formData, "user": { "id": payload.id } };
+
+    // 이미지 파일 추가    
+    for (let i = 0; i < maxImagelength; i++) {
+      if (imageListFile[i]) {
+        data.append("files", imageListFile[i]);
+      } else {
+        data.append("files", new Blob([]));
+      }
+    }
+
+    // 신규 등록일경우
+    if(isNew){
+      // 상품 등록 URL
+      url = "/product/productAdd";
+    } else {
+      // 상품 수정 URL
+      url = "/product/productUpdate";
+      // 상품의 id설정
+      formData = {...formData, "id": id  };
+    }
+
+    // formData설정(String타입으로 전송)
+    data.append("product", JSON.stringify(formData));
+
+    // // 상품 정보 DB에 업로드
+    const result = await axiosPostFile(url, data);
+
+    // 업로드 성공시 메세지 출력
+    if (result) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}
+
+// 상품 정보 등록
+export const delProductData = (productId) => async(dispatch) => {
+  // 토큰 확인
+  const stored = localStorage.getItem("loginInfo");
+
+  if (stored) {
+    const url = "/product/productDelete";
+    const params = { "id" : productId };
+
+    // 상품 정보 DB에 업로드
+    const result = await api.get(url, { params });
+
+    // 상품 정보 삭제시, 장바구니 리스트 갱신(장바구니에 해당 상품이 있을경우 대비)
+    if(result) {
+      const { accessToken } = JSON.parse(stored);
+      const payload = parseJwt(accessToken);
+      dispatch(showCart(payload.id));
+    }
+
+    return result;
+  }
+}
+
+export const fetchRecentSubCategory = (upk) => async (dispatch) => {
+  try {
+    const res = await api.get(`/view/recent-subcat/${upk}`);
+    dispatch(setRecentSubCategory(res.data.recentSubCategory));
+  } catch (err) {
+    console.error("추천 subCategory 가져오기 실패:", err);
+  }
+};
+
+// 상품 Q&A 등록
+export const addProductQnA = (qnaData) => async(dispatch) => {
+  // 토큰 확인
+  const stored = localStorage.getItem("loginInfo");
+
+  if (stored) {
+    // 토큰에서 user의 id취득
+    const { accessToken } = JSON.parse(stored);
+    const payload = parseJwt(accessToken);
+
+    const url = "/product/addQnA";
+    const params = {...qnaData, "upk" : payload.id };
+
+    const result = await axiosPost(url, params);
+
+    if (result) {
+      await dispatch(setProductQnAListAPI());
+      return true;
+    } else {
+      return false;
+    }
+  }
+} 
