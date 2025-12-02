@@ -24,8 +24,13 @@ export default function Home() {
   const dispatch = useDispatch();
   const { index, setIndex } = useAutoSlider(images.length, 5000);
   const [advertiseList, setAdvertiseList] = useState([]);
-  const bannerAds = advertiseList.filter(ad => ad.advImageBanner !== null);
-  const inlineAds = advertiseList.filter(ad => ad.advImageInline !== null);
+  const bannerAds = Array.isArray(advertiseList)
+  ? advertiseList.filter(ad => ad?.advImageBanner)
+  : [];
+
+const inlineAds = Array.isArray(advertiseList)
+  ? advertiseList.filter(ad => ad?.advImageInline)
+  : [];
   const fetchAdvertiseList = async () => {
     return await getData("/advertise/list");
   };
