@@ -1,0 +1,3 @@
+id,ppk,upk,product_name,title,content,likes,is_best,tags,images,date
+1,1,1,친환경 상추 200g,정말 신선해요!,아삭하고 상태 좋아요,15,true,"[""신선함"",""아삭아삭""]","[""https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public/home-images/banner1.png""]","2025-10-10"
+2,3,2,아오리 사과 1kg,달고 맛있음,아이들도 좋아해요,22,false,"[""달콤""]","[]","2025-09-28"

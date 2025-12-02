@@ -1,0 +1,6 @@
+id,product_name,price,count,dc,brand_name,origin,image_url,image_url_name,is_hot_deal,is_member_special,category_sub_id,upk,pid
+1,친환경 상추 200g,2100,100,0,만나농장,국산,https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public/home-images/banner1.png,banner1.png,false,false,1,1,P001
+2,샐러드 믹스 300g,3200,150,0,프레시팜,국산,https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public/home-images/banner1.png,banner1.png,false,false,2,1,P002
+3,아오리 사과 1kg,5400,80,0,과일농원,국산,https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public/home-images/banner1.png,banner1.png,true,false,3,1,P003
+4,배 2개입,6900,60,0,반짝과일,국산,https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public/home-images/banner1.png,banner1.png,false,false,4,1,P004
+5,한돈 삼겹살 500g,12900,40,10,우리농장,국산,https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public/home-images/banner1.png,banner1.png,false,true,5,1,P005

@@ -1,0 +1,5 @@
+id,name,is_used,display_order
+1,채소,true,1
+2,과일,true,2
+3,정육,true,3
+4,수산,true,4

@@ -1,0 +1,7 @@
+id,name,is_used,display_order,main_id
+1,친환경채소,true,1,1
+2,샐러드야채,true,2,1
+3,사과,true,1,2
+4,배,true,2,2
+5,돼지고기,true,1,3
+6,소고기,true,2,3
