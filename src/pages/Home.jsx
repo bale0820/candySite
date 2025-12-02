@@ -43,16 +43,20 @@ const inlineAds = Array.isArray(advertiseList)
   }, []);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const result = await getData("/data/homeDataImages.json");
-      setImages(result.images);
-    };
-    dispatch(setProductListAPI());
-    dispatch(setProductReviewListAPI());
-    dispatch(setProductQnAListAPI());
-    dispatch(setCategoryListAPI());
-    fetchData();
-  }, []);
+  const fetchData = async () => {
+    const result = await getData("/data/homeDataImages.json");
+    console.log("Home Images API:", result);
+
+    setImages(result?.images ?? []); // 배열 없으면 강제로 빈 배열
+  };
+
+  dispatch(setProductListAPI());
+  dispatch(setProductReviewListAPI());
+  dispatch(setProductQnAListAPI());
+  dispatch(setCategoryListAPI());
+  fetchData();
+}, []);
+
 
   useEffect(() => {
     const stored = localStorage.getItem("loginInfo");
