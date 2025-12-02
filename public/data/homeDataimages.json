@@ -1,7 +1,7 @@
 {
-  "images" : [
-    "/images/banner1.png",
-    "/images/banner2.jpg",
-    "/images/banner3.jpg"
-  ]  
+  "images": [
+    "https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public/home-images/banner1.png",
+    "https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public/home-images/banner2.png",
+    "https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public/home-images/banner3.png"
+  ]
 }

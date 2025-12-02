@@ -44,7 +44,7 @@ const inlineAds = Array.isArray(advertiseList)
 
   useEffect(() => {
   const fetchData = async () => {
-    const result = await getData("/data/homeDataImages.json");
+    const result = await getData("https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public/home-images/homeDataimages.json");
     console.log("Home Images API:", result);
 
     setImages(result?.images ?? []); // 배열 없으면 강제로 빈 배열
