@@ -83,7 +83,6 @@ const inlineAds = Array.isArray(advertiseList)
     setShowPopup(false);
   };
 
-  console.log("images", images);
   return (
     <>
       <RightAdBanner ads={bannerAds} />
