@@ -20,7 +20,7 @@ import SearchResult from "pages/searchResult/SearchResult";
 import { ProductDetail } from "pages/productDetail/ProductDetail";
 import CustomerService from "pages/customerService/CustomerService";
 import { HeaderProductList } from "pages/productCategoryList/HeaderProductList";
-import { setupApiInterceptors } from "shared/lib/axios";
+import { api, setupApiInterceptors } from "shared/lib/axios";
 import NoticeDetail from "features/notice/components/NoticeDetail";
 import { NoticeList } from "pages/notice/NoticeList";
 import { AdminProductList } from "pages/administration/adminProductList/AdminProductList";
@@ -69,8 +69,8 @@ function App() {
 
   useEffect(() => {
     // ✅ 메인 렌더링 시 CSRF 토큰 미리 요청
-    axios
-      .get("/csrf", { withCredentials: true })
+    api
+      .get("https://candybackend-6skt.onrender.com/csrf", { withCredentials: true })
       .then(() => console.log("✅ CSRF Token issued"))
       .catch((err) => console.error("❌ CSRF Token init failed:", err));
   }, []);
