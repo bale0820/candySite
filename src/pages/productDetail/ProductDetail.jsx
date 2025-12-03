@@ -181,7 +181,7 @@ export function ProductDetail() {
             </div>
             <div className="product-image-container">
               <img
-                src={`/images/productImages/${product.imageUrl}`}
+                src={`/images/productImages/${product?.imageUrl}`}
                 alt={ product?.imageUrl_name }
                 className="product-image-main"
               />
@@ -193,7 +193,7 @@ export function ProductDetail() {
             <div className="product-info-top">
               <div className="product-info-left">
                 { product?.productName} ㅣ {" "}
-                <Link to={`/brand/${encodeURIComponent(product.brandName)}`} className="product-brand">
+                <Link to={`/brand/${encodeURIComponent(product?.brandName)}`} className="product-brand">
                   { product?.brandName}
                 </Link>
               </div>
