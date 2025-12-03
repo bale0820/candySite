@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { parseJwt } from "features/auth/parseJwt";
 import { removeCart, showCart, updateCart } from "features/cart/cartAPI";
 import "./Cart.scss";
+import { SUPABASE_STORAGE_URL } from "config/supabase";
 
 export function Cart() {
     const navigate = useNavigate();
@@ -35,7 +36,7 @@ export function Cart() {
                         <div>
                             <div className='cart-item'>
                                 <div className="cart-image-container">
-                                    <img src={`/images/productImages/${item.product.imageUrl}`} alt='product img' />
+                                    <img src={`${SUPABASE_STORAGE_URL}/productImages/${item.product.imageUrl}`} alt='product img' />
                                     { item.product.count === 0 && <div class="sold-out">SOLD OUT</div> }
                                 </div>
                                 <div className='cart-item-details'>
