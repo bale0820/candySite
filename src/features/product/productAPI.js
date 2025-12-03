@@ -16,6 +16,7 @@ import { api } from "shared/lib/axios";
 
 export const setProductListAPI = () => async (dispatch) => {
   const result = await api.get("/product/productList");
+  console.log("result", result);
   if (result.data !== null && Array.isArray(result.data)) {
     dispatch(setProductList({ result: result.data }));
   }
