@@ -29,8 +29,7 @@ export function ProductDetail() {
   // dispatch
   const dispatch = useDispatch();
   const product = useSelector((state) => state.product.product);
-
-  console.log("product", product);
+ 
   // product 최신화
   useEffect(() => {
     const fetchData = async () => {
