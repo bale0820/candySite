@@ -14,6 +14,7 @@ import { ReviewList } from 'features/productDetail/review/ReviewList';
 import { QnA } from 'features/productDetail/qna/QnA';
 import { Return } from 'features/productDetail/return/Return';
 import { api } from 'shared/lib/axios';
+import { SUPABASE_STORAGE_URL } from 'config/supabase';
 
 export function ProductDetail() {
   const { id } = useParams(); // 선택한 상품의 상품번호(primarykey)
@@ -181,7 +182,7 @@ export function ProductDetail() {
             </div>
             <div className="product-image-container">
               <img
-                src={`/images/productImages/${product?.imageUrl}`}
+                src={`${SUPABASE_STORAGE_URL}/productImages/${product?.imageUrl}`}
                 alt={ product?.imageUrl_name }
                 className="product-image-main"
               />
