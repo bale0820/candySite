@@ -175,26 +175,26 @@ export function ProductDetail() {
         <div className="product-detail-main">
           <div className="product-image">
             <div
-              className={`badge-container ${ product.hotDeal && product.memberSpecial ? "multi" : "" }`}>
-              { product.hotDeal && <span className="badge hot">원딜핫딜</span>}
-              { product.memberSpecial && <span className="badge member">멤버특가</span>}
+              className={`badge-container ${ product?.hotDeal && product?.memberSpecial ? "multi" : "" }`}>
+              { product?.hotDeal && <span className="badge hot">원딜핫딜</span>}
+              { product?.memberSpecial && <span className="badge member">멤버특가</span>}
             </div>
             <div className="product-image-container">
               <img
                 src={`/images/productImages/${product.imageUrl}`}
-                alt={ product.imageUrl_name }
+                alt={ product?.imageUrl_name }
                 className="product-image-main"
               />
-              { product.count === 0 && <div class="sold-out">SOLD OUT</div> }
+              { product?.count === 0 && <div class="sold-out">SOLD OUT</div> }
             </div>
           </div>
 
           <div className="product-info">
             <div className="product-info-top">
               <div className="product-info-left">
-                { product.productName} ㅣ {" "}
+                { product?.productName} ㅣ {" "}
                 <Link to={`/brand/${encodeURIComponent(product.brandName)}`} className="product-brand">
-                  { product.brandName}
+                  { product?.brandName}
                 </Link>
               </div>
 
@@ -219,14 +219,14 @@ export function ProductDetail() {
               </div>
             </div>
             <div className="product-title">
-              [{product.brandName}] {product.productName}
+              [{product?.brandName}] {product?.productName}
             </div>
 
             {/* 할인 정보 */}
             <div className="product-discount red">
-              { Math.floor(product.price * (product.dc / 100)).toLocaleString() + "원" } 할인
+              { Math.floor(product?.price * (product?.dc / 100)).toLocaleString() + "원" } 할인
               <span className="product-price-original line">
-                {(product.price)?.toLocaleString() + "원"}
+                {(product?.price)?.toLocaleString() + "원"}
               </span>
             </div>
 
@@ -244,8 +244,8 @@ export function ProductDetail() {
             <ul className="product-meta">
               <li>배송</li>
               <li>
-                {product.delName}<br />
-                {product.delDescription && product.delDescription.split("\n").map((line, i) => (
+                {product?.delName}<br />
+                {product?.delDescription && product.delDescription.split("\n").map((line, i) => (
                   <React.Fragment key={i}>
                     {line}
                     <br />
@@ -255,31 +255,31 @@ export function ProductDetail() {
             </ul>
             <ul className="product-meta">
               <li>판매자</li>
-              <li>{product.seller}</li>
+              <li>{product?.seller}</li>
             </ul>
             <ul className="product-meta">
               <li>원산지</li>
-              <li>{product.origin}</li>
+              <li>{product?.origin}</li>
             </ul>
             <ul className="product-meta">
               <li>판매단위</li>
-              <li>{product.unit}</li>
+              <li>{product?.unit}</li>
             </ul>
             <ul className="product-meta">
               <li>중량/용량</li>
-              <li>{product.weight}</li>
+              <li>{product?.weight}</li>
             </ul>
             <ul className="product-meta">
               <li>총 수량</li>
-              <li>{product.count}개</li>
+              <li>{product?.count}개</li>
             </ul>
             <ul className="product-meta">
               <li>알레르기정보</li>
-              <li>{product.allergyInfo}</li>
+              <li>{product?.allergyInfo}</li>
             </ul>
             <ul className="product-meta">
               <li>안내사항</li>
-              <li>{product.description}</li>
+              <li>{product?.description}</li>
             </ul>
             <hr />
 
@@ -335,14 +335,14 @@ export function ProductDetail() {
       {/* 각 탭 섹션 */}
       <div className="product-tab-content">
         <section className="product-section" ref={sectionRefs.item} id="item">
-          <Item images={product.productDescriptionImage} />
+          <Item images={product?.productDescriptionImage} />
         </section>
 
         <section
           className="product-section"
           ref={sectionRefs.detail}
           id="detail">
-          <Detail images={product.productInformationImage} />
+          <Detail images={product?.productInformationImage} />
         </section>
 
         <section

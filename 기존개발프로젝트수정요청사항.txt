@@ -1,0 +1,25 @@
+app.js 70번줄 
+ useEffect(() => {
+    // ✅ 메인 렌더링 시 CSRF 토큰 미리 요청
+    api
+      .get("https://candybackend-6skt.onrender.com/csrf", { withCredentials: true })
+      .then(() => console.log("✅ CSRF Token issued"))
+      .catch((err) => console.error("❌ CSRF Token init failed:", err));
+  }, []);
+수정필요
+
+
+
+axios.js
+
+3번째 줄
+
+export const api = axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
+  withCredentials: true,
+});
+수정필요
+
+
+
+ㅅ구정
