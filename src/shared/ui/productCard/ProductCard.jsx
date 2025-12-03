@@ -1,5 +1,6 @@
 import React from "react";
 import "./ProductCard.scss";
+import { SUPABASE_STORAGE_URL } from "config/supabase";
 
 export default function ProductCard({ item }) {
   // 할인된 가격 계산
@@ -22,7 +23,7 @@ export default function ProductCard({ item }) {
       <div className="image-container">
         {/* ✅ 제품 이미지 */}
         <img
-          src={`https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public/productImages/${item.imageUrl}`}
+          src={`${SUPABASE_STORAGE_URL}/productImages/${item.imageUrl}`}
           alt={item.imageUrl_name}
           className="product-image"
           draggable="false"
