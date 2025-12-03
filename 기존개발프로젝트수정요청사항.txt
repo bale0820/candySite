@@ -23,3 +23,7 @@ export const api = axios.create({
 
 
 
+export const SUPABASE_STORAGE_URL =
+  "https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public";
+
+작성필요
