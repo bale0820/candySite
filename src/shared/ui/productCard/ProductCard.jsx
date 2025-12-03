@@ -22,7 +22,7 @@ export default function ProductCard({ item }) {
       <div className="image-container">
         {/* ✅ 제품 이미지 */}
         <img
-          src={`/images/productImages/${item.imageUrl}`}
+          src={`https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public/productImages/${item.imageUrl}`}
           alt={item.imageUrl_name}
           className="product-image"
           draggable="false"
