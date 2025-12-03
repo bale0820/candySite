@@ -1,5 +1,8 @@
-id,name,is_used,display_order
-1,채소,true,1
-2,과일,true,2
-3,정육,true,3
-4,수산,true,4
+id,display_order,is_used,name
+1,1,1,신선식품
+2,2,1,가공식품
+3,3,1,간편식/즉석식품
+4,4,1,음료/유제품
+5,5,1,과자/베이커리
+6,6,1,건강식품
+7,7,1,주류/전통주

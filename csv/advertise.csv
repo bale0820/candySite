@@ -1,4 +1,7 @@
-adv_id,adv_name,adv_link,adv_image_banner,adv_image_inline,adv_detail_image
-1,겨울특가 SALE,https://candy.com/sale,https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public/home-images/banner1.png,,https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public/home-images/banner1.png
-2,과일 베스트 20,https://candy.com/fruit,,https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public/home-images/banner1.png,https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public/home-images/banner1.png
-3,정육 타임특가,https://candy.com/meat,https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public/home-images/banner1.png,,https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public/home-images/banner1.png
+adv_id,adv_detail_image,adv_image_banner,adv_image_inline,adv_link,adv_name
+1,NULL,NULL,/images/advertiseimages/Adv1.png,https://www.hitejinro.com/brand/view.asp?brandcd2=E08,하이트진로
+2,NULL,NULL,/images/advertiseimages/Adv2.png,https://www.oliveyoung.co.kr/store/main/main.do?oy=0,올리브영
+3,NULL,NULL,/images/advertiseimages/Adv3.png,https://ohou.se/search/index?query=%EC%BA%94%EB%93%A4&search_affect_type=Typing,오늘의집
+4,NULL,/images/advertiseimages/BannerAdv1.png,NULL,https://www.oliveyoung.co.kr/store/main/main.do?oy=0,올리브영
+5,NULL,/images/advertiseimages/BannerAdv2.png,NULL,https://www.oliveyoung.co.kr/store/main/main.do?oy=0,올리브영
+6,NULL,/images/advertiseimages/BannerAdv3.png,NULL,https://www.coupang.com/np/search?component=&q=%EC%98%81%EC%96%91%EC%A0%9C&traceId=miiakjcm&channel=user,쿠팡
