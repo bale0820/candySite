@@ -14,7 +14,7 @@ export function Cart() {
     const totalDcPrice = useSelector((state) => state.cart.totalDcPrice);
     const shippingFee = useSelector((state) => state.cart.shippingFee);
     const [userId, setUserId] = useState(null); // ✅ 테스트용 사용자 id (나중엔 토큰으로 대체)
-
+    console.log("cartList", cartList);
     useEffect(() => {
         const stored = localStorage.getItem("loginInfo");
         if (stored) {
