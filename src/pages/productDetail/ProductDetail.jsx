@@ -168,7 +168,7 @@ export function ProductDetail() {
   };
 
   // 화면 표시용 할인가 적용 가격 : 9,999
-  const salesPrice = Math.floor(product.price * ((100 - product.dc) / 100));
+  const salesPrice = Math.floor(product?.price * ((100 - product?.dc) / 100));
   return (
     <div className="product-container">
       <div className="product-detail">
