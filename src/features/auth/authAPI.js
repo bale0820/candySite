@@ -4,6 +4,7 @@ import { setCartItem, getCartCount } from "../cart/cartSlice.js"
 import { parseJwt } from "features/auth/parseJwt";
 // utils
 import { api, setupApiInterceptors } from "shared/lib/axios.js";
+import axios from "axios";
 
 export const getLogin = (formData, param) => async (dispatch) => {
   const { userId, password } = formData;
