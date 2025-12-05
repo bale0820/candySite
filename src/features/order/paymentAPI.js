@@ -90,7 +90,7 @@ export const getNaverPayment = async (receiver, paymentInfo, cartList, couponId)
       totalPayAmount: paymentInfo.totalAmount.toString(),
       taxScopeAmount: paymentInfo.totalAmount.toString(),
       taxExScopeAmount: "0",
-      returnUrl: `https://candy-site.vercel.app/payment/naver/return?merchantPayKey=${merchantPayKey}`,
+      returnUrl: `https://candybackend-6skt.onrender.com/payment/naver/return?merchantPayKey=${merchantPayKey}`,
     });
   } catch (error) {
     console.error("NaverPay Error:", error);
