@@ -106,6 +106,7 @@ function App() {
           <Route path="/oauth/success" element={<SuccessPage />} />
           <Route path="/recipe" element={<RecipePage />} />
           <Route path="/recipe/:id" element={<RecipeDetailPage />} />
+          <Route path="/success" element={<SuccessPage />} />
           <Route element={<AdminRoute />}>
             <Route path="/admin" element={<AdminLayout />}>
               <Route path="analytics/forecast" element={<ForecastPage />} />
