@@ -11,7 +11,7 @@ export const getLogin = (formData, param) => async (dispatch) => {
 
   try {
     // ✅ 1. 로그인 전에 CSRF 토큰 먼저 요청
-    const res = await axios.post("/auth/login", { userId, password });
+    const res = await axios.post("https://candybackend-6skt.onrender.com/auth/login", { userId, password });
     const accessToken = res.data.accessToken;
     const role = res.data.role;
     if (accessToken) {
