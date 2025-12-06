@@ -3,7 +3,7 @@
   color: #333;
 
   .hero {
-    background: url("http://localhost:3000/images/delivery.jpg") center/cover no-repeat;
+    background: url(var(--storage-url)) center/cover no-repeat;
     height: 300px;
     display: flex;
     align-items: center;

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import "./Delivery.scss";
+import { SUPABASE_STORAGE_URL } from "config/supabase";
 
 export function Delivery() {
   const mapRef = useRef(null);
@@ -36,15 +37,12 @@ export function Delivery() {
   }, []);
 
   return (
-    <div className="delivery-info">
-      {/* 1️⃣ Hero Section */}
-      <section className="hero">
-        {/* <div className="hero-text">
-          <h1>Candy 샛별 & 하루배송</h1>
-          <p>지금 주문하면 내일 새벽 도착! 신선함 그대로 전해드립니다 🍓</p>
-        </div> */}
-      </section>
-
+    <div
+      className="delivery-info"
+      style={{
+        "--storage-url": `${SUPABASE_STORAGE_URL}/images/delivery.jpg`,
+      }}
+    >
       {/* 2️⃣ Delivery Highlights */}
       <section className="highlights">
         <h2>샛별이 뜰 때 가장 신선할 때</h2>
