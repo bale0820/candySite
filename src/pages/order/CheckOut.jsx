@@ -10,6 +10,7 @@ import { showCart } from 'features/cart/cartAPI';
 // shared
 import { api } from 'shared/lib/axios.js';
 import "./CheckOut.scss";
+import { SUPABASE_STORAGE_URL } from 'config/supabase';
 
 export function CheckOut() {
 
@@ -297,7 +298,7 @@ export function CheckOut() {
                     <div className="info-grid order-info-grid">
                         {reduceCartList.map((item) =>
                             <div key={item.cid} className="value">
-                                <img src={`/images/productImages/${item.product.imageUrl}`} alt="product" style={{ width: '35px' }} />
+                                <img src={`${SUPABASE_STORAGE_URL}/productImages/${item.product.imageUrl}`} alt="product" style={{ width: '35px' }} />
                                 {item.product.productName},
                                 수량({item.qty}),
                                 가격({(item.product.price * (100 - item.product.dc) * 0.01 * item.qty).toLocaleString()}원)
