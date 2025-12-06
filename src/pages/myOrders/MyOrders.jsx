@@ -53,7 +53,7 @@ export function MyOrders() {
 
     const fetchOrders = async () => {
       try {
-        const res = await api.get(`http://localhost:8080/orders/my/${userId}`);
+        const res = await api.get(`https://candybackend-6skt.onrender.com/orders/my/${userId}`);
         console.log(res.data);
         
         setOrders(res.data);
