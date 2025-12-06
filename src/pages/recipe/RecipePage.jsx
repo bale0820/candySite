@@ -5,6 +5,7 @@ import { getRecipeListAPI } from "utils/recipeAPI";
 // sub
 import "./RecipePage.scss";
 import Sidebar from "features/recipe/Sidebar";
+import { SUPABASE_STORAGE_URL } from "config/supabase";
 
 export default function RecipePage() {
   const [selectedSub, setSelectedSub] = useState(null);
@@ -44,7 +45,7 @@ export default function RecipePage() {
               onClick={() => navigate(`/recipe/${recipe.id}`)}  // 🔥 클릭 시 이동
             >
               <img
-                src={recipe.imageUrl}
+                src={`${SUPABASE_STORAGE_URL}/${recipe.imageUrl}`}
                 alt={recipe.title}
                 className="recipe-img"
               />
