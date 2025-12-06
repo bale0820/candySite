@@ -6,7 +6,7 @@ export function Delivery() {
   const mapRef = useRef(null);
 
   useEffect(() => {
-    // ✅ Kakao Map 로드
+    // ❗ Kakao Map script 로드
     const script = document.createElement("script");
     script.src =
       "https://dapi.kakao.com/v2/maps/sdk.js?appkey=217fcf3151ca4922f670954462e84226&autoload=false";
@@ -15,7 +15,7 @@ export function Delivery() {
 
     script.onload = () => {
       window.kakao.maps.load(() => {
-        const position = new window.kakao.maps.LatLng(37.494618, 127.030016); // 본사 위치 (예: 강남)
+        const position = new window.kakao.maps.LatLng(37.494618, 127.030016);
         const options = { center: position, level: 3 };
         const map = new window.kakao.maps.Map(mapRef.current, options);
 
@@ -24,9 +24,7 @@ export function Delivery() {
 
         const info = new window.kakao.maps.InfoWindow({
           content: `
-            <div style="
-              color: #6a4dfd;
-            ">
+            <div style="color: #6a4dfd;">
               Candy Corporation
             </div>
           `,
@@ -40,10 +38,18 @@ export function Delivery() {
     <div
       className="delivery-info"
       style={{
-        "--storage-url": `${SUPABASE_STORAGE_URL}/images/delivery.jpg`,
+        "--hero-bg": `url(${SUPABASE_STORAGE_URL}/images/delivery.jpg)`,
       }}
     >
-      {/* 2️⃣ Delivery Highlights */}
+      {/* 1️⃣ Hero Section */}
+      <section className="hero">
+        <div className="hero-text">
+          <h1>Candy 샛별 & 하루배송</h1>
+          <p>지금 주문하면 내일 새벽 도착! 신선함 그대로 전해드립니다 🍓</p>
+        </div>
+      </section>
+
+      {/* 2️⃣ Highlights Section */}
       <section className="highlights">
         <h2>샛별이 뜰 때 가장 신선할 때</h2>
         <div className="cards">
@@ -62,7 +68,7 @@ export function Delivery() {
         </div>
       </section>
 
-      {/* 3️⃣ 배송 지역별 표 */}
+      {/* 3️⃣ Delivery Table */}
       <section className="delivery-table">
         <h2>주문부터 배송까지 한눈에 보기</h2>
         <table>
@@ -98,7 +104,7 @@ export function Delivery() {
         </table>
       </section>
 
-      {/* 4️⃣ 지도 섹션 */}
+      {/* 4️⃣ 지도 */}
       <section className="map-section">
         <h2>📍 Candy 본사 위치</h2>
         <div ref={mapRef} className="map-container"></div>
