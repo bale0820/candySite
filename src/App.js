@@ -66,7 +66,7 @@ function App() {
 
     return () => clearTimeout(timer);
   }, []);
-s
+
   useEffect(() => {
     // ✅ 메인 렌더링 시 CSRF 토큰 미리 요청
     api
