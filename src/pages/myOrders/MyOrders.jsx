@@ -8,6 +8,7 @@ import { addCart } from "features/cart/cartAPI.js";
 // shared
 import { api } from 'shared/lib/axios.js';
 import './MyOrders.css'
+import { SUPABASE_STORAGE_URL } from "config/supabase";
 
 export function MyOrders() {
   const [orders, setOrders] = useState([]);
@@ -192,7 +193,7 @@ export function MyOrders() {
                 {order.orderDetails.map((item) => (
                   <li className="mypage-product-list" key={item.id}>
                     <div className="mypage-product-img-container">
-                      <img className="mypage-product-img" src={`/images/productImages/${item.product.imageUrl}`} alt="product" />
+                      <img className="mypage-product-img" src={`${SUPABASE_STORAGE_URL}/productImages/${item.product.imageUrl}`} alt="product" />
                       { item.product.count === 0 && <div class="sold-out">SOLD OUT</div> }
                     </div>
                     <div className="mypage-product-info">
