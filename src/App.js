@@ -66,11 +66,11 @@ function App() {
 
     return () => clearTimeout(timer);
   }, []);
-
+s
   useEffect(() => {
     // ✅ 메인 렌더링 시 CSRF 토큰 미리 요청
     api
-      .get("https://candybackend-6skt.onrender.com/csrf", { withCredentials: true })
+      .get("/csrf")
       .then(() => console.log("✅ CSRF Token issued"))
       .catch((err) => console.error("❌ CSRF Token init failed:", err));
   }, []);
