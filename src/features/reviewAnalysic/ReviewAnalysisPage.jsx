@@ -21,7 +21,7 @@ export default function ReviewAnalysisPage() {
   }, [ppk]);
 
   if (!reviews.length) return <p>리뷰가 없습니다</p>;
-  if (!analysis) return <p>AI 분석 중...</p>;
+  if (!analysis) return <p>AI 분석 중.....</p>;
 
   return (
     <div className="analysis-page">
