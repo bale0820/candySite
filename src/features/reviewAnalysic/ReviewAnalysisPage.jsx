@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 // shared
 import { api } from 'shared/lib/axios.js';
 import "./ReviewAnalysisPage.scss";
+import { SUPABASE_STORAGE_URL } from "config/supabase";
 
 export default function ReviewAnalysisPage() {
   const { ppk } = useParams();
@@ -69,7 +70,7 @@ export default function ReviewAnalysisPage() {
             {r.images?.length > 0 && (
               <div className="review-images">
                 {r.images.map((img, i) => (
-                  <img key={i} src={img} alt="" />
+                  <img key={i} src={`${SUPABASE_STORAGE_URL}${img}`} alt="" />
                 ))}
               </div>
             )}
