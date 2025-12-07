@@ -18,7 +18,6 @@ import { setProductListAPI,
           setProductQnAListAPI,
           fetchRecentSubCategory } from "features/product/productAPI";
 import ProductList from "shared/ui/ProductList/ProductList";
-import { Helmet } from "react-helmet-async";
 
 export default function Home() {
   const [images, setImages] = useState([]);
@@ -86,14 +85,6 @@ const inlineAds = Array.isArray(advertiseList)
 
   return (
   <>
-    <Helmet>
-      <title>캔디마켓 - 신선한 식재료와 추천 레시피</title>
-      <meta
-        name="description"
-        content="신선한 식재료, 인기 상품, 레시피 추천까지! 캔디마켓에서 즐겨보세요."
-      />
-    </Helmet>
-
     <RightAdBanner ads={bannerAds} />
     {showPopup && <Popup onClose={handleClosePopup} />}
     <SlideContainer images={images} index={index} setIndex={setIndex} />
