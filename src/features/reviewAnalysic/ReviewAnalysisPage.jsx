@@ -70,7 +70,7 @@ export default function ReviewAnalysisPage() {
             {r.images?.length > 0 && (
               <div className="review-images">
                 {r.images.map((img, i) => (
-                  <img key={i} src={`${SUPABASE_STORAGE_URL}${img}`} alt="" />
+                  <img key={i} src={`https://cloxzvgtzfscexietfaz.supabase.co/storage/v1/object/public${img}`} alt="" />
                 ))}
               </div>
             )}
