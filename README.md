@@ -59,3 +59,23 @@ src/
 
    - 카트페이지에서 수량 +, - 클릭시 일단 그에 맞게 리덕스에서 해당 아이템 수량 변경 및 총 수량 변경  
    만약 백엔드에 데이터베이스로 수량 변경 성공하면 그대로 진행, 실패시 롤백으로 취소
+
+
+
+
+
+   {
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "routes": [
+    { "src": "/sitemap.xml", "dest": "/sitemap.xml" },
+    { "src": "/robots.txt", "dest": "/robots.txt" },
+    { "src": "/favicon.ico", "dest": "/favicon.ico" },
+    { "src": "/manifest.json", "dest": "/manifest.json" },
+    { "src": "/icons/(.*)", "dest": "/icons/$1" }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
