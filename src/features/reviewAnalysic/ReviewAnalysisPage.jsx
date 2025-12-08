@@ -23,6 +23,7 @@ export default function ReviewAnalysisPage() {
   if (!reviews.length) return <p>리뷰가 없습니다.</p>;
   if (!analysis) return <p>AI 분석 중.....</p>;
 
+  console.log("reviews",reviews);
   return (
     <div className="analysis-page">
       <h2 className="page-title">
